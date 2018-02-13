@@ -1,0 +1,22 @@
+{
+  "name": "finra-broker-check",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whats-a-handle/finra-broker-check.git"
+  },
+  "author": "whats-a-handle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whats-a-handle/finra-broker-check/issues"
+  },
+  "homepage": "https://github.com/whats-a-handle/finra-broker-check#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
