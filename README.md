@@ -82,6 +82,26 @@ BrokerCheck.queryFirms({query:'FirmName',city:'Los Angeles', radius : 10},(resul
 
 ```
 
+### Example of Broker Query Result
+
+```
+//This is returned by our queryFirm function.
+// Question marks note that I'm not sure what this piece of data means.
+//Please feel free to clarify if you have any ideas
+
+const Broker = {
+		secNumber : SEC ID number,
+		score : score given to the firm by FINRA (?),
+		numberOfBranches : Number of branches,
+		sourceId : Source ID number (?),
+		name : Name of the firm,
+		otherNames : Firm aliases or other names (will always include firm name),
+		finraApprovedRegistrationCount : (?),
+		branchLocations : dirty location/address data that also contains contact phone numbers for branches,
+	}
+
+```
+
 ### (WIP) Searching Representatives 
 
 
