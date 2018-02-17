@@ -28,30 +28,24 @@ NPM "Request" module
 
 ```
 Current Available Parameters:
--query 
--string  "Firm Name"
+-query : string  "Firm Name"
 
--city 
--string  "Los Angeles"
+-city : string  "Los Angeles"
 
--state 
--string  "CA"
+-state : 2 letter abbreviation: "CA"
 
--radius 
--Number of miles to search around e.g. 10
+-radius : Number of miles to search around e.g. 10
 
--limit 
--number of results per query. 
+-limit : Number of results per query
 
--offset 
--search records following the records at this position
+-offset : Number (starts at 0)
 
 //Example of structuring your parameter object when passing into the query function
 //Not all parameters are necessary
 
 	parameters = {
 		query : 'Firm Name',
-		city : 'Los Angeles',
+		state : 'CA',
 		radius : 10,
 		limit : 15,
 		offset : 0
