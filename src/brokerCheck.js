@@ -26,8 +26,8 @@ createBrokerCheck = () =>{
 
 		},
 
-		generateQueryURL : (parameters,queryURL) =>{
-
+		generateQueryURL : (parameters,searchType,queryURL) =>{
+			queryURL += searchType + '?';
 			for(key in parameters){
 				queryURL += key + '=' + parameters[key] + '&';
 			}
@@ -35,12 +35,11 @@ createBrokerCheck = () =>{
 			return queryURL;
 		},
 		queryFirms : function(parameters, callback) {
-		
-			const rawParameters = this.translateParameters(parameters);
-			const Request = require('request');
-			let queryURL = BrokerCheck.endpoint + 'firms' + '?';
-			queryURL = this.generateQueryURL(rawParameters,queryURL);
 
+			const Request = require('request');	
+			const rawParameters = this.translateParameters(parameters);
+			const queryURL =  this.generateQueryURL(rawParameters,'firms',this.endpoint);
+			
 			Request(queryURL, (error, response, data) =>{
 
 				if(error){
@@ -50,13 +49,13 @@ createBrokerCheck = () =>{
 					return;
 				}
 				else{
-					if(data===null){
+					console.log(queryURL);
+					if(data!=null){
 	
 						const rawResultArray = JSON.parse(data).results.BROKER_CHECK_FIRM.results;
 						const parsedBrokers = rawResultArray.map((broker) => { return createBrokerage(broker.fields)});
 						callback(parsedBrokers);
 					}
-
 					else{
 						console.log('No results found');
 					}
