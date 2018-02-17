@@ -3,7 +3,7 @@ createBrokerCheck = () =>{
 	const BrokerCheck = {
 
 		endpoint : 'https://doppler.finra.org/doppler-lookup/api/v1/search/',
-		createBrokerage : require('./broker.js'),
+		createBroker : require('./broker.js'),
 		rawParameters : {},
 		translateParameters : (prettyParameters) =>{
 
@@ -53,7 +53,7 @@ createBrokerCheck = () =>{
 					if(data!=null){
 	
 						const rawResultArray = JSON.parse(data).results.BROKER_CHECK_FIRM.results;
-						const parsedBrokers = rawResultArray.map((broker) => { return createBrokerage(broker.fields)});
+						const parsedBrokers = rawResultArray.map((broker) => { return createBroker(broker.fields)});
 						callback(parsedBrokers);
 					}
 					else{

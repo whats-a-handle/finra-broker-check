@@ -1,6 +1,6 @@
-createBrokerage = (data) => {
+createBroker = (data) => {
 
-	const Brokerage = {
+	const Broker = {
 		secNumber : parseInt(data.bc_sec_number),
 		score : data.score,
 		numberOfBranches : data.bc_branches_count,
@@ -11,11 +11,11 @@ createBrokerage = (data) => {
 		branchLocations : data.bc_branches,
 	}
 
-	return Brokerage;
+	return Broker;
 }
 
 
 
-module.exports = createBrokerage;
+module.exports = createBroker;
 
 
