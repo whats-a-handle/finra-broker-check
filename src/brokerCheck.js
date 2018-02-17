@@ -12,6 +12,7 @@ createBrokerCheck = () =>{
 				city : prettyParameters.city,
 				state : prettyParameters.state,
 				nrows : prettyParameters.limit > 0 ? prettyParameters.limit : 10,
+				start : prettyParameters.offset > 0 ? prettyParameters.offset : 0,
 				r : prettyParameters.radius > 0 ? prettyParameters.radius : 25,
 				sort : prettyParameters.sortBy != undefined ? prettyParameters.sortBy : 'score+desc',
 			} 
@@ -49,9 +50,9 @@ createBrokerCheck = () =>{
 					return;
 				}
 				else{
-					console.log(queryURL);
+					
 					if(data!=null){
-	
+						
 						const rawResultArray = JSON.parse(data).results.BROKER_CHECK_FIRM.results;
 						const parsedBrokers = rawResultArray.map((broker) => { return createBroker(broker.fields)});
 						callback(parsedBrokers);
