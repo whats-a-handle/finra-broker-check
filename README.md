@@ -76,7 +76,7 @@ You can also retrieve the current licenses held, but that is also found in a sep
 
 ```
 //import module's function
-const createBrokerCheck = require('./src/brokerCheck.js');
+const createBrokerCheck = require('./brokerCheck.js');
 
 //create and return a new BrokerCheck object
 const BrokerCheck = createBrokerCheck();
@@ -114,7 +114,7 @@ The below snippet shows how to import the module's function, create a new Broker
 
 ```
 //import module's function
-const createBrokerCheck = require('./src/brokerCheck.js');
+const createBrokerCheck = require('./brokerCheck.js');
 
 //create and return a new BrokerCheck object
 const BrokerCheck = createBrokerCheck();
