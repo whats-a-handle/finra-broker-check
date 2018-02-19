@@ -1,7 +1,8 @@
+const createBranch = require('./branch.js');
+
 createBroker = (data) => {
 
 	const Broker = {
-		createBranch : require('./branch.js'),
 		secNumber : parseInt(data.bc_sec_number),
 		score : data.score,
 		numberOfBranches : data.bc_branches_count,
