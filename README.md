@@ -170,10 +170,9 @@ const Branch = {
 	}
 ```
 ### In-Progress
-## Disclosures/Complaints against a Rep
-## All Licenses Held by a Rep
-## Main Branch Detailed Contact Information
-
+* *Disclosures/Complaints against a Rep
+*All Licenses Held by a Rep
+*Main Branch Detailed Contact Information*
 
 
 ## Authors
