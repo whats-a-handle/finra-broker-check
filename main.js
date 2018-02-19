@@ -1,4 +1,4 @@
-const createBrokerCheck = require('./brokerCheck');
+const createBrokerCheck = require('./src/brokerCheck.js');
 
 const BrokerCheck = createBrokerCheck();
 
