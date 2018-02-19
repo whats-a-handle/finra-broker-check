@@ -1,7 +1,8 @@
+const createBranch = require('./branch.js');
+
 createRepresentative = (data) => {
 
 	const Representative = {
-		createBranch : require('./branch.js'),
 		firstName : data.bc_firstname,
 		lastName :  data.bc_lastname,
 		middleName : data.bc_middlename,
