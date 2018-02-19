@@ -4,7 +4,7 @@ createBranch = (data) =>{
 		address : {
 			zip : data.bc_branch_zip,
 			street : data.bc_branch_street1,
-			coty : data.bc_branch_city,
+			city : data.bc_branch_city,
 			state : data.bc_branch_state,
 		},
 		coordinates : {
