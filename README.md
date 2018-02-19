@@ -2,11 +2,25 @@
 
 I wanted to see if it was possible to programmatically run searches against FINRA's Brokercheck database for academic purposes (learning to work with APIs). I didn't see any documentation for their API, so I figured I'd try my hand at making my own sort of wrapper for their search tool. The goal is for a user to be able to run queries using the BrokerCheck API to look up Firms as well as Registered and Licensed Reps. 
 
-This tool was created in the academic context for learning purposes only. You use it at your own risk with no gurantee from the author and no guarantee that the data you're receiving is correct. 
+This tool was created in the academic context for learning purposes. You use it at your own risk with no gurantee from the author and no guarantee that the data you're receiving is correct. 
 
 <strong>Prior to performing any searches against FINRA's Broker Check API, be sure to read the Broker Check Terms of Use/Agreement</strong> which can be found here to ensure you are in compliance with their terms found on the actual Broker Check site: https://brokercheck.finra.org/
 
 
+## Currently Working
+```
+Query Firms
+Query Registered Representatives - does not yet return Disclosures or Licenses 
+
+```
+
+## Coming Soon
+```
+Disclosures/Complaints with details
+Licenses per Rep
+Detailed Contact Information for main branch
+
+```
 
 ## Getting Started
 
@@ -28,7 +42,7 @@ NPM "Request" module
 
 ```
 Current Available Parameters:
--query : string  "Firm Name"
+-query : string  "Firm or Representative Name"
 
 -city : string  "Los Angeles"
 
@@ -44,13 +58,51 @@ Current Available Parameters:
 //Not all parameters are necessary
 
 	parameters = {
-		query : 'Firm Name',
+		query : 'Firm or Represenative Name',
 		state : 'CA',
 		radius : 10,
 		limit : 15,
 		offset : 0
 	}
 
+```
+
+
+### Searching for Registered Representatives
+You can currently search Representatives to get top-level information such as the current Firm, other firms at which they work and whether
+or not they have any complaints. The complaint/disclosure data is accessible, but I have not yet parsed that out, as it requires a different API query.
+
+You can also retrieve the current licenses held, but that is also found in a separate API query. This will also be worked on soon.
+
+```
+//import module's function
+const createBrokerCheck = require('./src/brokerCheck.js');
+
+//create and return a new BrokerCheck object
+const BrokerCheck = createBrokerCheck();
+
+//This query will return any representatives with a similar name within California
+//It will return them 10 at a time
+BrokerCheck.queryIndividuals({query : 'Rep Name',state:'CA', radius : 25, limit: 10},(results) =>{
+ 	results.map((representative) => {console.log(representative)})
+ });
+
+
+
+```
+
+### Example of Individual Query Result
+```
+const Representative = {
+		firstName : First Name,
+		lastName :  Last Name,
+		middleName : Middle Name,
+		primaryEmployer : Main/Primary Broker Dealer (?),
+		sourceID : FINRA Broker Check ID,
+		currentEmployerRegistrationDate : Date First Registered with primary Brokerage,
+		hasDisclosures : Disclosures Filed - True or False, 
+		currentEmployments : Array of Branch Objects,
+	}
 ```
 
 ### Searching for Firms
@@ -87,16 +139,41 @@ const Broker = {
 		secNumber : SEC ID number,
 		score : score given to the firm by FINRA (?),
 		numberOfBranches : Number of branches,
-		sourceId : Source ID number (?),
+		sourceId : FINRA Broker Check ID,
 		name : Name of the firm,
 		otherNames : Firm aliases or other names (will always include firm name),
 		finraApprovedRegistrationCount : (?),
-		branchLocations : dirty location/address data that also contains contact phone numbers for branches,
+		branchLocations : Array of Branch Objects
 	}
 
 ```
 
-### (WIP) Searching Representatives 
+### Branch Object
+Branches are offices/places of employment. I've parsed them into Branch objects for easy utilization. 
+Note that Firm Queries do not return a firmId but Individual Queries do.
+
+Below is how Branches are returned.
+```
+const Branch = {
+		address : {
+			zip : Zip/Postal Code
+			street : Street 1,
+			city : City,
+			state : State,
+		},
+		coordinates : {
+			latitude : Latitude Coordinates
+			longitude: Longitude Coordinates
+		},
+		branchId : Branch ID
+		firmId : Firm ID (only returned on Individual Rep Queries)
+	}
+```
+### In-Progress
+## Disclosures/Complaints against a Rep
+## All Licenses Held by a Rep
+## Main Branch Detailed Contact Information
+
 
 
 ## Authors
