@@ -4,6 +4,7 @@ createBrokerCheck = () =>{
 
 		endpoint : 'https://doppler.finra.org/doppler-lookup/api/v1/search/',
 		createBroker : require('./broker.js'),
+		createRepresenative : require('./representative.js'),
 		rawParameters : {},
 		translateParameters : (prettyParameters) =>{
 
@@ -65,7 +66,37 @@ createBrokerCheck = () =>{
 
 			});
 
-		}
+		},
+
+		queryIndividuals : function(parameters, callback){
+			const Request = require('request');
+			const rawParameters = this.translateParameters(parameters);
+			const queryURL = this.generateQueryURL(rawParameters,'individuals',this.endpoint);
+
+			Request(queryURL, (error, response, data) => {
+				if(error){
+					console.log('An error occurred when using the following queryurl:\n' + queryURL);
+					console.log('Error: ' + error);
+					console.log('Response: ' + response);
+					return;
+				}
+				else{
+					
+					if(data!=null){
+						
+						const rawResultArray = JSON.parse(data).results.BROKER_CHECK_REP.results;
+						const parsedRepresentatives = rawResultArray.map((representative) => { return createRepresentative(representative.fields)});
+						callback(parsedRepresentatives);
+					}
+					else{
+						console.log('No results found');
+					}
+
+				}
+
+			});
+
+		},
 
 
 	}
