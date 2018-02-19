@@ -75,8 +75,8 @@ or not they have any complaints. The complaint/disclosure data is accessible, bu
 You can also retrieve the current licenses held, but that is also found in a separate API query. This will also be worked on soon.
 
 ```
-//import module's function
-const createBrokerCheck = require('./brokerCheck.js');
+//import createBrokerCheck function
+const createBrokerCheck = require('finra-broker-check');
 
 //create and return a new BrokerCheck object
 const BrokerCheck = createBrokerCheck();
@@ -113,8 +113,8 @@ The FINRA BrokerCheck converts ZipCodes to latitude/longitude coords and then do
 The below snippet shows how to import the module's function, create a new BrokerCheck object and run a query and print its results.
 
 ```
-//import module's function
-const createBrokerCheck = require('./brokerCheck.js');
+//import createBrokerCheck function
+const createBrokerCheck = require('finra-broker-check');
 
 //create and return a new BrokerCheck object
 const BrokerCheck = createBrokerCheck();
