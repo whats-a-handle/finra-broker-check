@@ -171,9 +171,9 @@ const Branch = {
 ```
 ### In-Progress
 
-Disclosures/Complaints against a Rep
-All Licenses Held by a Rep
-Main Branch Detailed Contact Information
+1. Disclosures/Complaints against a Rep
+2. All Licenses Held by a Rep
+3. Main Branch Detailed Contact Information
 
 
 ## Authors
