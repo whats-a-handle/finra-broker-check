@@ -8,23 +8,21 @@ This tool was created in the academic context for learning purposes. You use it 
 
 
 ## Currently Working
-```
-Query Firms
-Query Registered Representatives - does not yet return Disclosures or Licenses 
+1. Query Firms
+2. Query Registered Representatives - (not yet including Disclosures/Licenses)
 
-```
 
 ## Coming Soon
-```
-Disclosures/Complaints with details
-Licenses per Rep
-Detailed Contact Information for main branch
+1. Disclosures/Complaints with details
+2. Licenses per Rep
+3. Detailed Contact Information for main branch
 
-```
+
+
+
 
 ## Getting Started
-
-Please note that this is a work in progress. You can only search Firms at this time. 
+This is a work in progress, so please be considerate.
 Not all of the query parameters are available. I've listed what I've currently tested out.
 
 ### Prerequisites and Installation
@@ -176,11 +174,6 @@ const Branch = {
 		firmId : Firm ID (only returned on Individual Rep Queries)
 	}
 ```
-### In-Progress
-
-1. Disclosures/Complaints against a Rep
-2. All Licenses Held by a Rep
-3. Main Branch Detailed Contact Information
 
 
 ## Authors
