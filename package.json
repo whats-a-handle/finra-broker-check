@@ -1,6 +1,6 @@
 {
   "name": "finra-broker-check",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "I wanted to see if it was possible to programmatically run searches against FINRA's Brokercheck database for academic purposes (learning to work with APIs). I didn't see any documentation for their API, so I figured I'd try my hand at making my own sort of wrapper for their search tool. The goal is for a user to be able to run queries using the BrokerCheck API to look up Firms as well as Registered and Licensed Reps.",
   "main": "main.js",
   "scripts": {
