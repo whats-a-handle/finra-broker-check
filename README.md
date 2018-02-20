@@ -6,20 +6,14 @@ This tool was created in the academic context for learning purposes. You use it 
 
 <strong>Prior to performing any searches against FINRA's Broker Check API, be sure to read the Broker Check Terms of Use/Agreement</strong> which can be found here to ensure you are in compliance with their terms found on the actual Broker Check site: https://brokercheck.finra.org/
 
-
 ## Currently Working
 1. Query Firms
 2. Query Registered Representatives - (not yet including Disclosures/Licenses)
-
 
 ## Coming Soon
 1. Disclosures/Complaints with details
 2. Licenses per Rep
 3. Detailed Contact Information for main branch
-
-
-
-
 
 ## Getting Started
 This is a work in progress, so please be considerate.
@@ -71,7 +65,6 @@ Current Available Parameters:
 	}
 
 ```
-
 
 ### Searching for Registered Representatives
 You can currently search Representatives to get top-level information such as the current Firm, other firms at which they work and whether
@@ -174,7 +167,6 @@ const Branch = {
 		firmId : Firm ID (only returned on Individual Rep Queries)
 	}
 ```
-
 
 ## Authors
 
