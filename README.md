@@ -7,7 +7,7 @@ This tool was created in the academic context for learning purposes. You use it 
 <strong>Prior to performing any searches against FINRA's Broker Check API, be sure to read the Broker Check Terms of Use/Agreement</strong> which can be found here to ensure you are in compliance with their terms found on the actual Broker Check site: https://brokercheck.finra.org/
 
 ## Currently Working
-1. Query Firms
+1. Query Firms and related branches
 2. Query Registered Representatives - (not yet including Disclosures/Licenses)
 
 ## Coming Soon
