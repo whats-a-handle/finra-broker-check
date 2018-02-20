@@ -27,15 +27,22 @@ Detailed Contact Information for main branch
 Please note that this is a work in progress. You can only search Firms at this time. 
 Not all of the query parameters are available. I've listed what I've currently tested out.
 
-### Prerequisites
-
+### Prerequisites and Installation
+1.Node.js
+2.NPM
 
 ```
-Node.js
-NPM "Request" module
+npm install finra-broker-check --save
 ```
 
+### Import into your code
+```
+//returns a function definition that creates a BrokerCheck object
+const createBrokerCheck = require('finra-broker-check'); 
 
+//returns a BrokerCheck object
+const brokerCheck = createBrokerCheck();
+```
 ## API
 
 ### Setting Up Your Query
