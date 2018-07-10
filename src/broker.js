@@ -10,7 +10,7 @@ createBroker = (data) => {
 		name : data.bc_firm_name,
 		otherNames : data.bc_other_names,
 		finraApprovedRegistrationCount : data.bc_approved_finra_registration_count,
-		branchLocations : data.bc_branches.map((branch)=>{return createBranch(branch)}),
+		branchLocations : (data.bc_branches && data.bc_branches.length > 0)?data.bc_branches.map((branch)=>{return createBranch(branch)}):[],
 	}
 
 	return Broker;

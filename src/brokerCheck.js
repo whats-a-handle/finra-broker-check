@@ -31,7 +31,9 @@ createBrokerCheck = () =>{
 		generateQueryURL : (parameters,searchType,queryURL) =>{
 			queryURL += searchType + '?';
 			for(key in parameters){
-				queryURL += key + '=' + parameters[key] + '&';
+				if (parameters[key]) {
+					queryURL += key + '=' + parameters[key] + '&';
+				}
 			}
 
 			return queryURL;
